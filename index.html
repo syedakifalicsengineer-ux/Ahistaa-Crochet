@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahistaa Crochet – Handmade with Love</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- PWA: manifest + icons + theme color -->
+  <link rel="manifest" href="./manifest.json"/>
+  <link rel="icon" href="./icons/icon-192.png"/>
+  <link rel="apple-touch-icon" href="./icons/icon-192.png"/>
+  <meta name="theme-color" content="#c9b8e8"/>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════ -->
+  <nav id="navbar">
+    <a class="nav-brand" href="#home">Ahistaa <span>Crochet</span></a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"             onclick="closeNav()">Home</a></li>
+      <li><a href="#featured"         onclick="closeNav()">Featured</a></li>
+      <li><a href="#products-section" onclick="closeNav()">Products</a></li>
+      <li><a href="#about"            onclick="closeNav()">About</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <!-- Cart button -->
+      <button class="cart-btn" onclick="toggleCart()" aria-label="Open cart">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg-blob blob1"></div>
+    <div class="hero-bg-blob blob2"></div>
+    <div class="hero-bg-blob blob3"></div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">✦ Handmade with Love ✦</span>
+      <h1 class="hero-title">Ahistaa<br/><em>Crochet</em></h1>
+      <p class="hero-tagline">Every stitch tells a story. Soft, beautiful, made by hand — just for you.</p>
+      <a href="#products-section" class="hero-cta">
+        Shop Now
+        <svg viewBox="0 0 24 24">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">200+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Handmade</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FEATURED PRODUCTS
+       ═══════════════════════════════════════ -->
+  <section class="featured" id="featured">
+    <div class="section-header centered fade-in">
+      <span class="section-label">✦ Best Sellers</span>
+      <h2 class="section-title">Featured <em>Favourites</em></h2>
+      <p class="section-sub">Our most-loved handcrafted pieces — chosen by customers just like you.</p>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ALL PRODUCTS
+       ═══════════════════════════════════════ -->
+  <section id="products-section">
+    <div class="section-header fade-in">
+      <span class="section-label">✦ Our Collection</span>
+      <h2 class="section-title">All <em>Products</em></h2>
+      <p class="section-sub">Browse our full collection of handmade crochet goods.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filters" id="filters">
+      <button class="filter-btn active" onclick="filterProducts('All', event)">All</button>
+      <button class="filter-btn" onclick="filterProducts('Toys', event)">🧸 Toys</button>
+      <button class="filter-btn" onclick="filterProducts('Gifts', event)">🎁 Gifts</button>
+      <button class="filter-btn" onclick="filterProducts('Bags', event)">👜 Bags</button>
+      <button class="filter-btn" onclick="filterProducts('Home Decor', event)">🏡 Home Decor</button>
+      <button class="filter-btn" onclick="filterProducts('Accessories', event)">💐 Accessories</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+       ═══════════════════════════════════════ -->
+  <section class="about" id="about"> 
+    <div class="about-inner">
+      <div class="about-visual fade-in"><span>🧶</span></div>
+      <div class="about-text fade-in">
+        <span class="section-label">✦ Our Story</span>
+        <h2 class="section-title">About <em>Ahistaa</em></h2>
+        <p class="section-sub" style="margin-bottom:1.2rem">
+          Ahistaa Crochet is a handmade crochet brand dedicated to creating beautiful, soft,
+          and high-quality crochet products. Each item is carefully handcrafted with love and
+          attention to detail.
+        </p>
+        <p class="section-sub" style="margin-bottom:2rem">
+          We believe in the magic of handmade — the warmth, the texture, the story in every
+          loop and knot. Whether it's a gift for a loved one or a treat for yourself, you'll
+          feel the difference.
+        </p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="feat-icon">🌸</div>
+            <div class="feat-text">
+              <strong>100% Handmade</strong>
+              <p>Every product is crafted by hand, never mass-produced.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">✨</div>
+            <div class="feat-text">
+              <strong>Premium Materials</strong>
+              <p>Soft, high-quality yarns chosen with care for every piece.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">💝</div>
+            <div class="feat-text">
+              <strong>Made with Love</strong>
+              <p>Each stitch carries intention, warmth, and heart.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════ -->
+
+  <footer>
+    <div class="footer-brand">Ahistaa <span>Crochet</span></div>
+    <p>Handmade with Love — one stitch at a time</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#featured">Featured</a>
+      <a href="#products-section">Products</a>
+      <a href="#about">About</a>
+    </div>
+    <hr/>
+    <p style="font-size:.78rem;opacity:.5">DESIGNED BY: SYED AKIF ALI <small>IIT Madras</small></p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       CART PANEL
+       ═══════════════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <div class="cart-title">🛒 Your Cart</div>
+      <button class="cart-close" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-price" id="cartTotal">₹0</span>
+      </div>
+      <button class="place-order-btn" onclick="openOrder()">Place Order</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ORDER MODAL
+       ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="orderModal">
+      <div class="modal-header">
+        <div class="modal-title">Place Your <span>Order</span></div>
+        <button class="modal-close" onclick="closeOrder()">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <!-- Form content injected by script.js → openOrder() -->
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PRODUCT PREVIEW MODAL
+       (Added by integration — shows a 4-image gallery
+       for a product before Add to Cart / Buy Now.
+       Hidden by default via .modal-overlay's own CSS,
+       reuses existing modal/.modal-overlay styling so it
+       matches the site's look with zero visual changes.)
+       ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="previewOverlay" onclick="handlePreviewOverlayClick(event)">
+    <div class="modal preview-modal" id="previewModalBox">
+      <div class="modal-header">
+        <div class="modal-title" id="previewTitle">Product</div>
+        <button class="modal-close" onclick="closePreview()">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body preview-body">
+        <!-- 4-image gallery/slider -->
+        <div class="preview-gallery" id="previewGallery">
+          <div class="preview-slides" id="previewSlides"></div>
+          <button class="preview-nav prev" onclick="event.stopPropagation();previewSlide(-1)" aria-label="Previous image">‹</button>
+          <button class="preview-nav next" onclick="event.stopPropagation();previewSlide(1)" aria-label="Next image">›</button>
+          <div class="preview-dots" id="previewDots"></div>
+        </div>
+        <div class="preview-info">
+          <div class="product-category" id="previewCat"></div>
+          <div class="preview-price" id="previewPrice"></div>
+          <p class="preview-desc" id="previewDesc"></p>
+          <div class="preview-actions">
+            <button class="add-btn" id="previewAddBtn" onclick="addFromPreview()">🛒 Add to Cart</button>
+            <button class="submit-btn" id="previewBuyBtn" onclick="buyFromPreview()">⚡ Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- JavaScript Files -->
+  <script src="india-states-cities.js"></script>
+  <script src="script.js"></script>
+
+  <!-- PWA: register service worker for installability + offline support -->
+ 
+
+
+
+
+
+
+
+</body>
+</html>
