@@ -1095,6 +1095,64 @@ footer hr {
   }
 }
 /* ═══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE FIXES (additions only — nothing above this
+   line was modified; these rules only refine spacing/layout on
+   small screens, per mobile-fix request. No JS/logic touched.)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* 1. Header cart icon — clean alignment + badge position */
+  .nav-right {
+    gap: 0.6rem;
+  }
+
+  .cart-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cart-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .cart-count {
+    top: -3px;
+    right: -3px;
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+    border-width: 1.5px;
+  }
+
+  .nav-brand {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    padding: 0 4vw;
+  }
+
+  /* 2. Product cards — show two per row on mobile, tighter spacing,
+        same card design/image size/buttons/fonts/colors/animations */
+  .featured-grid,
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  /* 3. Order form — State full width, City stacks below it, both
+        full width; validation/logic unchanged */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
    INTEGRATION ADDITIONS (TryCro → chrochet functionality port)
    Everything below is NEW — no existing rule above this line
    was modified. These rules only style newly-added elements
