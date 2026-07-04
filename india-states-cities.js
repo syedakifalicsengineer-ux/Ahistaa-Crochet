@@ -32,7 +32,7 @@ const INDIA_STATES_CITIES = {
   "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer", "Bikaner", "Alwar", "Bharatpur", "Sikar", "Bhilwara"],
   "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan"],
   "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Erode", "Vellore", "Thoothukudi", "Thanjavur"],
-  "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Ramagundam", "Mahbubnagar","Medak","Sangareddy"],
+  "Telangana": ["Hyderabad", "Warangal", "Hanamkonda", "Nizamabad", "Karimnagar", "Khammam", "Ramagundam", "Mahbubnagar", "Mahabubnagar", "Medak", "Sangareddy", "Adilabad", "Bhadradri Kothagudem", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Komaram Bheem Asifabad", "Mahabubabad", "Mancherial", "Medchal–Malkajgiri", "Mulugu", "Nagarkurnool", "Nalgonda", "Narayanpet", "Nirmal", "Peddapalli", "Rajanna Sircilla", "Rangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Yadadri Bhuvanagiri", "Tandur"],
   "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar"],
   "Uttar Pradesh": ["Lucknow", "Kanpur", "Ghaziabad", "Agra", "Varanasi", "Meerut", "Prayagraj", "Noida", "Bareilly", "Aligarh", "Moradabad", "Gorakhpur", "Saharanpur", "Jhansi"],
   "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Rudrapur", "Nainital", "Rishikesh", "Kashipur"],
@@ -47,4 +47,4 @@ const INDIA_STATES_CITIES = {
   "Ladakh": ["Leh", "Kargil"],
   "Lakshadweep": ["Kavaratti", "Agatti", "Minicoy"],
   "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"]
-};  
+};
